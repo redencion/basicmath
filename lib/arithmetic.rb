@@ -7,6 +7,7 @@ module Arithmetic
      a.to_i + b.to_i
     end
     def substraction(a,b)
+     raise StandardError.new 'add only integer' unless Integer(a) && Integer(b) 
       a - b
     end
   end
