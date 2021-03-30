@@ -32,6 +32,10 @@ RSpec.describe 'Arithmetic Operation >' do
       expect(subject.substraction(9,0)).to be(9)
     end
 
+    it 'take over values' do
+      expect(subject.substraction('12','10')).to be(2)
+    end
+
     it 'Exception only numbers to add' do
       expect {subject.substraction('a',5)}.to raise_error(ArgumentError)
     end
