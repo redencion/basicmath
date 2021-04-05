@@ -45,11 +45,42 @@ RSpec.describe 'Arithmetic Operation >' do
 
     it 'Lets to get product to two input' do
       expect(subject.multiplication(4,4)).to be(16)
+      expect(subject.multiplication('2',4)).to be(8)
     end 
 
     it 'This another fake it' do
       expect {subject.multiplication('a','a')}.to raise_error(ArgumentError)
     end
+  end
 
+  context 'division' do
+    subject {Arithmetic::Operations.new}
+    it { expect(subject.division(4,4)).to be(1.0)}
+    it { expect(subject.division(2,4)).to be(0.5)}
+    it { expect(subject.division(0,4)).to be(0.0)}
+    it { expect(subject.division(100,300)).to be(0.3333333333333333)}
+    it { expect(subject.division('100','300')).to be(0.3333333333333333)}
+    it 'division fake it' do
+      expect {subject.division('a','a')}.to raise_error(ArgumentError)
+    end
+  end
+  context 'exponentation' do
+    subject {Arithmetic::Operations.new}
+    it { expect(subject.expo(8,2)).to be(64)}
+    it { expect(subject.expo(2,8)).to be(256)}
+    it { expect(subject.expo(2,0)).to be(1)}
+    it { expect(subject.expo(0,4)).to be(0)}
+    it { expect(subject.expo('2','5')).to be(32)}
+    it 'exponentation fake it' do
+      expect {subject.expo('a','a')}.to raise_error(ArgumentError)
+    end
+  end
+  context 'Logarithm' do
+    subject {Arithmetic::Operations.new}
+    it { expect(subject.log(64,8)).to be(2.0)}
+    it { expect(subject.log(1,10)).to be(0.0)}
+    it { expect(subject.log(10,10)).to be(1.0)}
+    it { expect(subject.log(100,10)).to be(2.0)}
+    it { expect(subject.log(1000,10)).to be(3.0)}
   end
 end
