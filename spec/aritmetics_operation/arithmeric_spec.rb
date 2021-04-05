@@ -40,4 +40,16 @@ RSpec.describe 'Arithmetic Operation >' do
       expect {subject.substraction('a',5)}.to raise_error(ArgumentError)
     end
   end
+  context 'multiplication' do
+    subject {Arithmetic::Operations.new}
+
+    it 'Lets to get product to two input' do
+      expect(subject.multiplication(4,4)).to be(16)
+    end 
+
+    it 'This another fake it' do
+      expect {subject.multiplication('a','a')}.to raise_error(ArgumentError)
+    end
+
+  end
 end
