@@ -9,11 +9,12 @@ RSpec.describe 'Arithmetic Operation >' do
     it 'add two values' do
       expect(subject.addition(4,5)).to eq(9)
     end
+    it { expect(subject.addition(2.0,3.5)).to be(5.5)}
     it 'Exception only integer' do
       expect {subject.addition('a',5)}.to raise_error(ArgumentError)
     end
     it 'Convert string to integer and to do addition ' do
-      expect(subject.addition("12","12")).to be(24)
+      expect(subject.addition("12","12")).to be(24.0)
     end
   end
 
@@ -25,17 +26,17 @@ RSpec.describe 'Arithmetic Operation >' do
     end
 
     it "Try substraction get back number negetive" do
-      expect(subject.substraction(4,5)).to be(-1)
+      expect(subject.substraction(4,5)).to be(-1.0)
     end
     
     it ' Get subs with number positive' do
-      expect(subject.substraction(9,0)).to be(9)
+      expect(subject.substraction(9,0)).to be(9.0)
     end
 
     it 'take over values' do
-      expect(subject.substraction('12','10')).to be(2)
+      expect(subject.substraction('12','10')).to be(2.0)
     end
-
+    it { expect(subject.substraction('2.3',10.2)).to be(-7.9)}
     it 'Exception only numbers to add' do
       expect {subject.substraction('a',5)}.to raise_error(ArgumentError)
     end
@@ -44,9 +45,11 @@ RSpec.describe 'Arithmetic Operation >' do
     subject {Arithmetic::Operations.new}
 
     it 'Lets to get product to two input' do
-      expect(subject.multiplication(4,4)).to be(16)
-      expect(subject.multiplication('2',4)).to be(8)
-    end 
+      expect(subject.multiplication(4,4)).to be(16.0)
+      expect(subject.multiplication('2',4)).to be(8.0)
+    end
+    it { expect(subject.multiplication('2.3',10.2)).to be(23.5)}
+    it { expect(subject.multiplication('2.3',-4.2)).to be(-9.7)}
 
     it 'This another fake it' do
       expect {subject.multiplication('a','a')}.to raise_error(ArgumentError)
@@ -58,19 +61,21 @@ RSpec.describe 'Arithmetic Operation >' do
     it { expect(subject.division(4,4)).to be(1.0)}
     it { expect(subject.division(2,4)).to be(0.5)}
     it { expect(subject.division(0,4)).to be(0.0)}
-    it { expect(subject.division(100,300)).to be(0.3333333333333333)}
-    it { expect(subject.division('100','300')).to be(0.3333333333333333)}
+    it { expect(subject.division(100,300)).to be(0.3)}
+    it { expect(subject.division('100','300')).to be(0.3)}
     it 'division fake it' do
       expect {subject.division('a','a')}.to raise_error(ArgumentError)
     end
   end
   context 'exponentation' do
     subject {Arithmetic::Operations.new}
-    it { expect(subject.expo(8,2)).to be(64)}
-    it { expect(subject.expo(2,8)).to be(256)}
-    it { expect(subject.expo(2,0)).to be(1)}
-    it { expect(subject.expo(0,4)).to be(0)}
-    it { expect(subject.expo('2','5')).to be(32)}
+    it { expect(subject.expo(8,2)).to be(64.0)}
+    it { expect(subject.expo(2,8)).to be(256.0)}
+    it { expect(subject.expo(2,0)).to be(1.0)}
+    it { expect(subject.expo(0,4)).to be(0.0)}
+    it { expect(subject.expo('2','5')).to be(32.0)}
+    it { expect(subject.expo('2.2','5.4')).to be(70.6)}
+    it { expect(subject.expo('2.2',5.4)).to be(70.6)}
     it 'exponentation fake it' do
       expect {subject.expo('a','a')}.to raise_error(ArgumentError)
     end
