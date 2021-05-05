@@ -93,5 +93,9 @@ RSpec.describe 'Arithmetic Operation >' do
     it { expect(subject.by_sign('(43-15)-19')).to be(9)}
     it { expect(subject.by_sign('40+[25-(3+2)]')).to be(60)}
     it { expect(subject.by_sign('250+[(7-2)+(4-1)+(3-2)]')).to be(259)}
+    it { expect(subject.by_sign('500-{6+[(14-6)-(7-2)+(4-1)]}')).to be(488)}
+    it { expect(subject.by_sign('500-2+2')).to be(500)}
+    it { expect(subject.by_sign('500-{6+[5-10]}')).to be(499)}
+    it { expect(subject.by_sign('500-{6+5-10}')).to be(499)}
   end
 end
