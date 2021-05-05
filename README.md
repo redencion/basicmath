@@ -7,4 +7,4 @@ this are some features:
 - multiplication
 - logarithm
 - exponentation
-- operation with brackets, it feature is building currently.
+- operation group sign.
